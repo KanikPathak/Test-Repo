@@ -107,7 +107,7 @@ section {
 }
 
 .btn.category{
-    background: var(--color-bg);
+    background-color: rgb(0, 0, 0, 0);
     color: var(--color--primary);
     font-size: 0.75rem;
     font-weight: 400;
@@ -130,13 +130,42 @@ section {
 }
 
 
+.post__content {
+    text-align:center;
+    padding-top: 5rem;
+    margin-inline: center;
+    display: block;
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--color-white); /* Adjust text color */
+    z-index: 1; /* Place the text above the blur layer */
+}
 
-
-
-
-
-
-
+.post__thumbnail {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .blur-layer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%; /* Adjust the width of the blurred area */
+    height: 80%; /* Adjust the height of the blurred area */
+    backdrop-filter: blur(3px); /* Adjust the blur amount */
+    transition: all 0.3s ease; /* Add transition for a smooth effect */
+    pointer-events: none; /* Ensure the blur layer doesn't interfere with mouse events */
+    background-color: rgba(255, 255, 255, 0.7);
+  }
+  
+  .post__thumbnail.hovered .blur-layer {
+    width: 100%;
+    height: 100%;
+  }
 
 
 
@@ -281,15 +310,16 @@ footer {
 
 .post {
     background: var(--color-white);
-    padding: 1rem;
+    /* padding: 1rem; */
     border-radius: var(--radius-4);
-    padding-bottom: 2rem;
+    /* padding-bottom: 2rem; */
     transition: var(--transition);
     cursor: default;
+    align-items: center;
 }
 
 .post:hover{
-    box-shadow: 0 1.5rem 2rem rgba(0, 0, 0, 1);
+    box-shadow: 0 0 1rem 1rem rgba(200,200, 200, 0.7);
 }
 
 .post__thumbnail{
@@ -310,7 +340,8 @@ footer {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
-    margin-top: 2rem;
+    margin-top: 3.5rem;
+    background-color: rgba(255, 255, 255, 0);
 }
 
 .post__author{

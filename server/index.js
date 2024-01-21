@@ -1,53 +1,72 @@
-// app.js
-
 const express = require('express');
+const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const multer = require('multer');
 const cors = require('cors');
-
+const path = require('path');
+const fs = require('fs');
 
 const app = express();
 const port = 8000;
 
 app.use(express.json());
-app.use(cors());
-// Connect to MongoDB
+app.use(bodyParser.json());
+app.use(cors())
 
-// mongoose.connect('mongodb://localhost:27017/image-store', { useNewUrlParser: true, useUnifiedTopology: true });
-// const db = mongoose.connection;
-// db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+const storage = multer.memoryStorage(); 
+const upload = multer({ storage: storage });
 
-// // Define a schema for storing image information
-// const imageSchema = new mongoose.Schema({
-//   filename: String,
-//   path: String,
-// });
+function savepost(post)
+{
+  const filePath = 'data.json';
 
-// const Image = mongoose.model('Image', imageSchema);
+// New JSON object to append
+const newData = post;
 
-// // Configure multer for handling file uploads
-// const storage = multer.diskStorage({
-//   destination: function (req, file, cb) {
-//     cb(null, 'uploads/'); // Set the destination folder for uploaded images
-//   },
-//   filename: function (req, file, cb) {
-//     const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
-//     cb(null, file.fieldname + '-' + uniqueSuffix); // Set a unique filename for each image
-//   },
-// });
+// Read the existing JSON file
+fs.readFile(filePath, 'utf8', (readErr, data) => {
+  if (readErr) {
+    console.error('Error reading the file:', readErr);
+    return;
+  }
 
-// const upload = multer({ storage: storage });
+  try {
+    // Parse the existing JSON data
+    const existingData = JSON.parse(data);
 
-// Define a route for uploading images
-app.post('/', async (req, res) => {
-console.log(req.body);
-  const { filename, path } = req.file;
+    // Append the new data to the array
+    existingData.push(newData);
 
-  // Save image information in MongoDB
-  const image = new Image({ filename, path });
-  await image.save();
+    // Write the updated data back to the file
+    fs.writeFile(filePath, JSON.stringify(existingData, null, 2), 'utf8', (writeErr) => {
+      if (writeErr) {
+        console.error('Error writing to the file:', writeErr);
+      } else {
+        console.log('Data appended and file updated successfully.');
+      }
+    });
+  } catch (parseErr) {
+    console.error('Error parsing JSON:', parseErr);
+  }
+});
+}
 
-  res.json({ message: 'Image uploaded successfully!' });
+app.post('/', async(req, res) => {
+  console.log("hello ji my name is jassi");
+  console.log(req.body);
+  savepost(req.body);
+  res.json({msg : "post saved successfully"});
+});
+
+app.post('/upload', upload.single('image'), (req, res) => {
+  console.log("majhfjdhfjd");
+  const imagePath = `./images/${Date.now()}_${req.file.originalname}`;
+fs.writeFileSync(imagePath, req.file.buffer);
+const name = path.basename(imagePath);
+res.json({ 
+  message: 'Image uploaded successfully',
+  name: name
+});
 });
 
 // Start the server

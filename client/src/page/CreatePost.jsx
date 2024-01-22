@@ -65,8 +65,8 @@ const formats = [
   'link','image',
 ]
 
-const POST_CATEGORIES = ["Agriculter","Business","Education","Entertainment","Art","Invester",
-"Uncategorized", "weather"]
+const POST_CATEGORIES = ["Agriculture","Business","Education","Entertainment","Art","Investment",
+"Weather", "Uncategorized"]
 
   return (
         <section className='create-post'>

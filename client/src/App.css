@@ -128,7 +128,7 @@ section {
     background: var(--color-gray-900);
     color: var(--color-white)
 }
-
+  
 
 .post__content {
     text-align:center;
@@ -140,7 +140,6 @@ section {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: var(--color-white); /* Adjust text color */
     z-index: 1; /* Place the text above the blur layer */
 }
 

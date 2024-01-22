@@ -39,7 +39,7 @@ const [isHovered, setIsHovered] = useState(false);
                     
                         <h3 style={{ fontFamily: 'Oswald', fontWeight: 'normal'}}>{postTitle}</h3>
                     <div className='post__footer'>
-                        <Link to={`/posts/categories/${category}`} className='btn category'>{category}</Link>
+                        <Link to={`/post/categories/${category}`} className='btn category'>{category}</Link>
                     </div>
                 </div>
             </div>

@@ -1,42 +1,79 @@
 import React, { useState } from 'react'
 import ReactQuill from 'react-quill'
 import 'react-quill/dist/quill.snow.css'
-const axios = require('axios');
+import axios from 'axios';
 
 
-async function makeApiCall(title , category , description, thumbnail) {
-  try {
-    // const response = await axios.post('http://localhost:8000/', {
-    //   title: title,
-    //   category: category,
-    //   description: description,
-    //   thumbnail: thumbnail
-    // }, {
-    //   headers: {
-    //     'Content-Type': 'application/json',
-    //   },
-    // });
+// const CreatePost = () => {
+//   const [title, setTitle]= useState('')
+//   const [category, setCategory]= useState('Uncategorized')
+//   const [ description, setDescription] = useState('')
+  // const [thumbnail, setThumbnail] = useState(null);
+  
 
-    const response = await fetch('http://localhost:8000/', {
-          method: 'POST',
-          body: {
-              title: title,
-              category: category,
-              description: description,
-              thumbnail: thumbnail
-            },
-        });
-  } catch (error) {
-    console.error('Error making API call:', error.message);
-  }
-}
+  // const handleFileChange = (event) => {
+  //   console.log("apna bana le");
+  //   setThumbnail(event.target.files[0]);
+  // };
 
-const CreatePost = () => {
+  // const handleUpload = async () => {
+  //   const formData = new FormData();
+  //   formData.append('image', thumbnail);
+
+  //   try {
+  //     const response = await axios.post('http://localhost:8000/upload', formData);
+  //     console.log(response.data);
+  //   } catch (error) {
+  //     console.error('Error uploading image', error);
+  //   }
+  // };
+
+
+  const UploadComponent = () => {
   const [title, setTitle]= useState('')
   const [category, setCategory]= useState('Uncategorized')
   const [ description, setDescription] = useState('')
-  const [thumbnail, setThumbnail]= useState('')
+  const [thumbnail, setThumbnail] = useState(null);
+  const [file, setFile] = useState(null);
+  
+    const handleFileChange = (e) => {
+      setFile(e.target.files[0]);
+    };
+  
+    const handleUpload = async () => {
+      const formData = new FormData();
+      formData.append('image', file);
+      
+      let name;
+      try {
+        const response = await axios.post('http://localhost:8000/upload', formData);
+        console.log(response.data);
+        name = response.data.name;
+      } catch (error) {
+        console.error('Error uploading image', error);
+      }
 
+      try{
+
+      const respo = await fetch('http://localhost:8000/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json', 
+        },
+        body: JSON.stringify({ 
+          title : title,
+          category : category,
+          description : description,
+          imgname : name
+        })
+      });
+
+    } catch (error) {
+      console.log("it is not working for some issue");
+      console.error('Error making API call:', error.message);
+    }
+    };
+  
 
   const modules = {
     toolbar: [
@@ -48,15 +85,6 @@ const CreatePost = () => {
     ],
   }
 
-function fn()
-{
-  console.log(title);
-  console.log(category);
-  console.log(description);
-  console.log(thumbnail);
-
-  makeApiCall(title,category,description,thumbnail);
-}
 
 const formats = [
   'header',
@@ -83,12 +111,12 @@ const POST_CATEGORIES = ["Agriculture","Business","Education","Entertainment","A
                 }
               </select>
               <ReactQuill modules={modules} formats={formats} value={description} onChange={setDescription}/>
-                <input type='file' onChange={e => setThumbnail(e.target.files[0])} accept='png, jpg, jpeg'/>
-                <button  onClick={fn} className='btn primary'>CreatePost</button>
+                <input type='file' onChange={handleFileChange} accept='png, jpg, jpeg'/>
+                <button  onClick={handleUpload} className='btn primary'>CreatePost</button>
             </div>
           </div>
         </section>
   )
 }
 
-export default CreatePost
+export default UploadComponent

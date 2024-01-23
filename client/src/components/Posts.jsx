@@ -1,20 +1,39 @@
-import React, { useState } from 'react'
-import PostItem from './PostItem' 
-import { DUMMY_POSTS } from '../data'
-
-
-
+import React, { useState } from 'react';
+import PostItem from './PostItem';
+import axios from 'axios';
 
 const Posts = () => {
-    const [Posts, setpost] = useState (DUMMY_POSTS)
+    const [Posts, setpost] = useState ([])
+    const handleUpload = async () => {
+        
+        try {
+          const response = await axios.get('http://localhost:8000/getAllData');
+        //   console.log(response.data.data[0].imgname);
+        //   setpost(response.data.data)
+        //   console.log(Posts)
+            for(var i=0; i<response.data.data.length; i++)
+            {
+                const resp = await axios.get(`http://localhost:8000/getImage/${response.data.data[i].imgname}`)
+                
+                // console.log(resp.data.imageData)
+                response.data.data[i].thumbnail = resp.data.imageData
+                // console.log(response.data.data[i])
+                // Posts.append(response.data.data[i]);
+            }
+            setpost(response.data.data)
+        } catch (error) {
+          console.error('Error fetching image', error);
+        }
+    }
+    handleUpload();
     return (
 
         <section className='posts'>
         {
            Posts.length > 0 ? <div className='container posts__container'>
                 {
-                Posts.map(({id, thumbnail, category, title, desc, authorID}) => 
-                <PostItem key={id} postID={id} thumbnail={thumbnail} category={category} title={title}
+                Posts.map(({id, thumbnail, category, title}) => 
+                <PostItem postID={id} thumbnail={thumbnail} category={category} title={title}
                 />)
                 }
             </div> : <h2 className='center'>NO POSTS FOUND..... </h2>}

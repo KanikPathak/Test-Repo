@@ -8,7 +8,7 @@ import Postdetails from './page/Postdetails'
 import Register from './page/Register'
 import Login from './page/Login'
 import UserProfile from './page/UserProfile'
-import CreatePost from './page/CreatePost'
+import UploadComponent from './page/CreatePost'
 import EditPost from './page/EditPost'
 import CategoryPosts from './page/CatagoryPosts'
 import AuthorPosts from './page/AuthorPost'
@@ -28,7 +28,7 @@ function App() {
         <Route path="/login" element= {<Login/>} />
         <Route path="/profile/:id" element= {<UserProfile/>} />
         <Route path="/authors" element= {<Authors/>} />
-        <Route path="/create" element={<CreatePost/>} />
+        <Route path="/create" element={<UploadComponent/>} />
         <Route path="/post/categories/:category" element= {<CategoryPosts/>} />
         <Route path="/posts/users/sdfsdf" element= {<AuthorPosts/>} />
         <Route path="/mypost/:id" element= {<Dashboard/>} />

@@ -7,7 +7,7 @@ export const  DUMMY_POSTS = [
     {
         id: '1',
         thumbnail: Thumbnail1,
-        category: 'education',
+        category: 'Education',
         title: 'IIT-Patna scholars developing virtual doctor for early diagnosis of diseases',
         desc: 'kbjsdfjjndsm jnvcs dsojjncjn j c, sdkjb sdkjb c kjbdsb vkjbk dskjbds knn fbds fjkbds dsdkbfsuigjkbsdf .',
         authorID: 3

@@ -17,8 +17,8 @@ const UploadComponent = () => {
     const formData = new FormData();
     formData.append('image', file);
 
-    const formData1 = new FormData();
-    formData1.append('desc', description);
+    // const formData1 = new FormData();
+    // formData.append('desc', description);
 
     let name;
     try {
@@ -28,13 +28,13 @@ const UploadComponent = () => {
       console.error('Error uploading image', error);
     }
 
-    let nameDesc;
-    try {
-      const response = await axios.post('http://localhost:8000/uploadFile', formData1);
-      nameDesc = response.data.name;
-    } catch (error) {
-      console.error('Error uploading image', error);
-    }
+    // let nameDesc;
+    // try {
+    //   const response = await axios.post('http://localhost:8000/uploadFile', formData1);
+    //   nameDesc = response.data.name;
+    // } catch (error) {
+    //   console.error('Error uploading image', error);
+    // }
 
     try {
 
@@ -46,7 +46,7 @@ const UploadComponent = () => {
         body: JSON.stringify({
           title: title,
           category: category,
-          description: nameDesc,
+          description: description,
           imgname: name
         })
       });

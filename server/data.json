@@ -4,7 +4,7 @@
     "category": "Agriculture",
     "description": "<p>akfjkldsjfkaj</p>",
     "imgname": "1706361263028_bg-img.jpg",
-    "clicks": 16,
+    "clicks": 18,
     "likes": 3,
     "dislikes": 2,
     "id": "31e55537-3e5b-4aea-aed5-7c8deff73b61"
@@ -14,7 +14,7 @@
     "category": "Business",
     "description": "<p>jadnflk afdjklsa jlkjalkdjs lkajds jflkajsdfalksdjf lkaj ldkjf kladjsl f</p><p>am dnlaskjf laskld jlkajds flkjasdlfk </p><p> akldjf ;lkajdsklf j</p><p> kjandflk jas</p>",
     "imgname": "1706363718874_marker-icon-red.png",
-    "clicks": 6,
+    "clicks": 8,
     "likes": 2,
     "dislikes": 0,
     "id": "922a1a2d-a113-4b5c-8a69-1140b2aaa0ec"
@@ -44,7 +44,7 @@
     "category": "Entertainment",
     "description": "<p>normal</p><h1>heading 1</h1><h2>heading 2</h2><p><br></p><p><strong>bold</strong></p><p><em>italics</em></p><p><u>underlined</u></p><p><s>strike</s></p><blockquote>quote</blockquote><blockquote>q2</blockquote><ul><li>list 1</li><li>list 2</li></ul><p><br></p><p><a href=\"google.com\" rel=\"noopener noreferrer\" target=\"_blank\">      lkdsfjlkjdsfalkj</a></p><p><br></p><p>hhelo</p>",
     "imgname": "1706525932241_bg-img.jpg",
-    "clicks": 1,
+    "clicks": 2,
     "likes": 0,
     "dislikes": 0,
     "id": "6e1a0b7c-f255-4286-8056-4b266e17802d"
@@ -54,9 +54,19 @@
     "category": "Education",
     "description": "<p>akjdsflksdj</p>",
     "imgname": "1706526898274_bg-img.jpg",
-    "clicks": 0,
+    "clicks": 1,
     "likes": 0,
     "dislikes": 0,
     "id": "6ef4320a-c825-4105-a18d-e015beb42468"
+  },
+  {
+    "title": "alkdjfads ",
+    "category": "Investment",
+    "description": "<p>lkdlsjf lasdf sadjf </p>",
+    "imgname": "1706554331763_bg-img.jpg",
+    "clicks": 2,
+    "likes": 0,
+    "dislikes": 0,
+    "id": "c118a4c6-c067-4eef-846b-c6edc6f58746"
   }
 ]

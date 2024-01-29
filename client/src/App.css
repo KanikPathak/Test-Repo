@@ -434,6 +434,44 @@ footer {
     margin: 0.7rem;
 }
 
+.description p{
+    margin: 0 !important;
+}
+
+.description blockquote {
+    border-left: 4px solid #ccc;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    padding-left: 16px;
+}
+
+.description ol, .description ul {
+    padding-left: 1.5em;
+    list-style: disc;
+}
+
+/* .description p, .description ol, .description ul, .description pre, .description blockquote, .description h1, .description h2, .description h3, .description h4, .description h5, .description h6 {
+    margin: 0;
+    padding: 0;
+    counter-reset: list-1 list-2 list-3 list-4 list-5 list-6 list-7 list-8 list-9;
+} */
+
+.description a:link {
+    color: blue;
+    text-decoration: underline;
+    cursor: auto;
+}
+
+.description a:visited {
+    color: purple;
+    text-decoration: underline;
+    cursor: auto;
+}
+
+.description a:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
 
 /*====================Register & footer======================*/
 .form{

@@ -10,7 +10,8 @@ const { v4: uuidv4 } = require('uuid');
 const app = express();
 const port = 8000;
 
-app.use(express.json());
+app.use(express.json({limit: '2000mb'}));
+app.use(express.urlencoded({extended: true, limit:'2000mb'}));
 app.use(bodyParser.json());
 app.use(cors())
 
@@ -169,13 +170,13 @@ app.post('/upload', upload.single('image'), (req, res) => {
 
 app.post('/uploadFile', upload.single('desc'), (req, res) => {
   console.log(req.file);
-  // const path = `./desc/${Date.now()}_description.txt`;
-  // fs.writeFileSync(path, req.body.desc);
+  const path = `./desc/${Date.now()}_description.txt`;
+  fs.writeFileSync(path, req.body.desc);
   
-  // const name = path.basename(path);
+  const name = path.basename(path);
   res.json({ 
     message: 'Description uploaded successfully',
-    // name: name
+    name: name
   });
 });
 

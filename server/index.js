@@ -52,7 +52,103 @@ function savepost(post)
   });
 }
 
-app.post('/', async(req, res) => {
+app.post('/clickCount', async(req, res) => {
+  const filePath = 'data.json';
+  const categoryFile = 'category_data.json';
+  // Read the existing JSON file
+  console.log("hello world")
+  fs.readFile(filePath, 'utf8', (readErr, data) => {
+    if (readErr) {
+      console.error('Error reading the file:', readErr);
+      return;
+    }
+    try {
+      // Parse the existing JSON data
+      const existingData = JSON.parse(data);
+
+      const itemById = existingData.filter(item => item.id === req.body.id);
+    
+     itemById[0].clicks = itemById[0].clicks + 1
+
+      // Write the updated data back to the file
+      fs.writeFile(filePath, JSON.stringify(existingData, null, 2), 'utf8', (writeErr) => {
+        if (writeErr) {
+          console.error('Error writing to the file:', writeErr);
+        } else {
+          console.log('Data appended and file updated successfully.');
+        }
+      });
+    } catch (parseErr) {
+      console.error('Error parsing JSON:', parseErr);
+    }
+  });
+  fs.readFile(categoryFile, 'utf8', (readErr, data) => {
+    if (readErr) {
+      console.error('Error reading the file:', readErr);
+      return;
+    }
+    try {
+      // Parse the existing JSON data
+      const existingData = JSON.parse(data);
+      existingData[0][req.body.category] = existingData[0][req.body.category] + 1
+
+      // Write the updated data back to the file
+      fs.writeFile(categoryFile, JSON.stringify(existingData), 'utf8', (writeErr) => {
+        if (writeErr) {
+          console.error('Error writing to the file:', writeErr);
+        } else {
+          console.log('Data appended and file updated successfully.');
+        }
+      });
+    } catch (parseErr) {
+      console.error('Error parsing JSON:', parseErr);
+    }
+  });
+  res.json({
+    status: 'success'
+  })
+})
+
+app.post('/likesCount/:id', async(req, res) => {
+  const filePath = 'data.json';
+
+  // Read the existing JSON file
+  fs.readFile(filePath, 'utf8', (readErr, data) => {
+    if (readErr) {
+      console.error('Error reading the file:', readErr);
+      return;
+    }
+    try {
+      // Parse the existing JSON data
+      const existingData = JSON.parse(data);
+
+      const itemById = existingData.filter(item => item.id === req.params.id);
+      if (itemById[0].clicks > (itemById[0].likes + itemById[0].dislikes)) {
+        if (req.body.isLiked) {
+          itemById[0].likes = itemById[0].likes + 1
+        }
+        else {
+          itemById[0].dislikes = itemById[0].dislikes + 1
+        }
+      }
+      // Write the updated data back to the file
+      fs.writeFile(filePath, JSON.stringify(existingData, null, 2), 'utf8', (writeErr) => {
+        if (writeErr) {
+          console.error('Error writing to the file:', writeErr);
+        } else {
+          console.log('Data appended and file updated successfully.');
+        }
+      });
+    } catch (parseErr) {
+      console.error('Error parsing JSON:', parseErr);
+    }
+    res.json({
+      status: 'success'
+    })
+  });
+})
+
+app.post('/createPost', async(req, res) => {
   console.log("hello ji my name is jassi");
   console.log(req.body);
   req.body.id = uuidv4();

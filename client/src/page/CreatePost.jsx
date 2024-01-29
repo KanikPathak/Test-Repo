@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import ReactQuill from 'react-quill'
+import { useNavigate } from 'react-router-dom';
 import 'react-quill/dist/quill.snow.css'
 import axios from 'axios';
 
@@ -8,6 +9,7 @@ const UploadComponent = () => {
   const [category, setCategory] = useState('Uncategorized')
   const [description, setDescription] = useState('')
   const [file, setFile] = useState(null);
+  const navigate = useNavigate();
 
   const handleFileChange = (e) => {
     setFile(e.target.files[0]);
@@ -17,9 +19,7 @@ const UploadComponent = () => {
     const formData = new FormData();
     formData.append('image', file);
 
-    const formData1 = new FormData();
-    formData1.append('desc', description);
-
+    // console.log(description)
     let name;
     try {
       const response = await axios.post('http://localhost:8000/upload', formData);
@@ -28,17 +28,9 @@ const UploadComponent = () => {
       console.error('Error uploading image', error);
     }
 
-    let nameDesc;
-    try {
-      const response = await axios.post('http://localhost:8000/uploadFile', formData1);
-      nameDesc = response.data.name;
-    } catch (error) {
-      console.error('Error uploading image', error);
-    }
-
     try {
 
-      const respo = await fetch('http://localhost:8000/', {
+      const respo = await fetch('http://localhost:8000/createPost', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -46,10 +38,18 @@ const UploadComponent = () => {
         body: JSON.stringify({
           title: title,
           category: category,
-          description: nameDesc,
-          imgname: name
+          description: description,
+          imgname: name,
+          clicks: 0,
+          likes: 0,
+          dislikes: 0
         })
       });
+      console.log(respo)
+      if (respo.ok)
+      {
+        navigate('/', { replace: true });
+      }
 
     } catch (error) {
       console.log("it is not working for some issue");
@@ -62,10 +62,10 @@ const UploadComponent = () => {
     toolbar: [
       [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
       ['bold', 'italic', 'underline', 'strike', 'blockquote'],
-      [{ 'list': 'order' }, { 'list': 'bullet' }, { 'indent': '-1' }, { 'indent': '-1' }],
+      [{ 'list': 'order' }, { 'list': 'bullet' }, { 'indent': '-1' }],
       ['link', 'image'],
       ['clean'],
-    ],
+    ]
   }
 
 

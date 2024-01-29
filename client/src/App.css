@@ -357,6 +357,41 @@ footer {
 }
 
 
+.like-form {
+    display: flex;
+    position: fixed;
+    bottom: 5px;
+    left: 50%;
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */  
+    transform: translateX(-50%);
+    background-color: rgb(218,220,224);
+    padding: 7px;
+    z-index: 999; 
+    border-radius: 5px;
+  }
+  
+  .like-form h4 {
+    margin-right: 15px; /* Adjust margin between heading and buttons */
+  }
+
+  .like-form button {
+    padding: 10px;
+    font-weight: 500;
+    font-size: .875rem;
+    color: rgb(26,115,232);
+    background-color: inherit;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .like-form button:hover {
+    color: rgb(25,103,210);
+    background-color: rgb(232,240,254);
+    cursor: pointer;
+  }
+  
+
 
 /*===============POST DETAILS LAYOUT====================*/
 /* .post-detail {

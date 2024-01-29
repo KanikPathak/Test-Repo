@@ -16,10 +16,29 @@ const [isHovered, setIsHovered] = useState(false);
     setIsHovered(false);
   };
 
+  const handleClick = async () => {
+    try {
+
+      const respo = await fetch(`http://localhost:8000/clickCount`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        }, 
+        body: JSON.stringify({
+          id: postID,
+          category: category
+        })
+      });
+
+    } catch (error) {
+      console.log("it is not working for some issue");
+      console.error('Error making API call:', error.message);
+    }
+  }
 
   return (
     <article className='post'>
-        <Link to={`/posts/${postID}`} >
+        <Link to={`/posts/${postID}`} onClick={() => handleClick()} >
             <div
                 className={`post__thumbnail ${isHovered ? 'hovered' : ''}`}
                 style={{

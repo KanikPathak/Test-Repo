@@ -13,6 +13,29 @@ const location = useLocation();
 const pathname = location.pathname;
 const id = pathname.substring(7);
 
+const [clicked, setClicked] = useState(null); // Track user choice
+
+  const handleLikeClick = async (isLiked) => {
+    setClicked(true);
+      try {
+
+        const respo = await fetch(`http://localhost:8000/likesCount/${id}`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            isLiked: isLiked
+          })
+        });
+  
+      } catch (error) {
+        console.log("it is not working for some issue");
+        console.error('Error making API call:', error.message);
+      }
+  };
+
+
 useEffect(() => {
   const handleUpload = async () => {
     try {
@@ -60,7 +83,12 @@ useEffect(() => {
         <div className='post-details__thumbnail'>
           <img src={file} alt='' />
         </div>
-        <div dangerouslySetInnerHTML={{ __html: description }} />
+        <div className='description' dangerouslySetInnerHTML={{ __html: description }} />
+        {clicked? null: (<div className="like-form">
+          <h4>Did you like the blog?</h4>
+          <button onClick={() => handleLikeClick(true)}>Yes</button>
+          <button onClick={() => handleLikeClick(false)}>No</button>
+        </div>)}
       </div>
     </section>
   )

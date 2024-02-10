@@ -18,7 +18,15 @@ const [clicked, setClicked] = useState(null); // Track user choice
   const handleLikeClick = async (isLiked) => {
     setClicked(true);
       try {
-
+        const key = id + "like";
+        if(localStorage.getItem(key)==null)
+          {
+            localStorage.setItem(key,1);
+          }
+          else
+          {
+            return;
+          }
         const respo = await fetch(`http://localhost:8000/likesCount/${id}`, {
           method: 'POST',
           headers: {

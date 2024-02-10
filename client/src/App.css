@@ -41,6 +41,11 @@ body{
     line-height: 1.6;
     color: var(--color-gray-700);
 }
+.post-details__container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 .post-details__thumbnail {
     width: 100%; /* Set the container width */
     height: 64vh; /* Set the container height */
@@ -492,8 +497,8 @@ footer {
 }
 
 .description {
-    margin : 10px 180px;
-    padding : 8px 120px;
+    margin : 40px 5px;
+    max-width : 750px;
 }
 
 .description img{
@@ -743,6 +748,7 @@ input, select, textarea{
         width: 100%;
         background: transparent;
         padding: 0;
+        align-items: centre;
     }
 
     .post-detail h1 {

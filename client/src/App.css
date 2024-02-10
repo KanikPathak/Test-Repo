@@ -41,6 +41,21 @@ body{
     line-height: 1.6;
     color: var(--color-gray-700);
 }
+.post-details__thumbnail {
+    width: 100%; /* Set the container width */
+    height: 64vh; /* Set the container height */
+    overflow: hidden; /* Hide the overflow of the image outside the container */
+    position: relative;
+}
+.post-details__thumbnail img{
+    width: 100%; /* Ensure the entire image is visible within the container */
+    height: auto; /* Maintain the aspect ratio */
+    object-fit: cover; /* Crop the image to cover the container without distortion */
+    object-position: center center; /* Center the middle part of the image */
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
 
 img{
     display: block;
@@ -402,7 +417,7 @@ footer {
 } */
 
 .post-detail {
-    width: 75%; /* Adjust the width as needed */
+    width: 100%; /* Adjust the width as needed */
     background: var(--color-white);
     padding: 2rem 0;
     /* margin: 2rem 0; Add margin for better spacing, adjust as needed */
@@ -456,6 +471,9 @@ footer {
     counter-reset: list-1 list-2 list-3 list-4 list-5 list-6 list-7 list-8 list-9;
 } */
 
+.description p{
+    font-size: 25px;
+}
 .description a:link {
     color: blue;
     text-decoration: underline;
@@ -473,6 +491,14 @@ footer {
     cursor: pointer;
 }
 
+.description {
+    margin : 10px 180px;
+    padding : 8px 120px;
+}
+
+.description img{
+    width : 100%;
+}
 /*====================Register & footer======================*/
 .form{
     display: flex;

@@ -16,6 +16,7 @@ import Authors from './page/Authors'
 import Dashboard from './page/Dashboard'
 import Logout from './page/Logout'
 import Footer from "./components/Footer";
+// import Navbar from "./components/newheader"
 
 function App() {
   return (

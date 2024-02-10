@@ -69,7 +69,7 @@ useEffect(() => {
         {/* </div> */}
         {/* </div> */}
 
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' , width : '100%' }}>
           {/* <h1>This is the post titjdfklasdjfklsjadfl c fsdjf sjdfhsjf adsf asdf asf sad fsadf adsf sadf asdf sad f sadf sad fsd fsda f   dfh sajfh ksdfh sajfhsadf le!</h1> */}
           {/* <div className='post-details__header'> */}
           <h1>{title}</h1>

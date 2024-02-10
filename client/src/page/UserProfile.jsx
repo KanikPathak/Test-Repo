@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import Avatar from '../images/avatar15.jpg'
+import Avatar from '../images/avatar1.jpg'
 import { TbPhotoEdit } from "react-icons/tb";
 import { FaUserCheck } from "react-icons/fa";
 

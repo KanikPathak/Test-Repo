@@ -3,7 +3,9 @@ import Posts from '../components/Posts'
 
 const home = () => {
   return (
-    <Posts/>
+    <>
+      <Posts/>
+    </>
   )
 }
 

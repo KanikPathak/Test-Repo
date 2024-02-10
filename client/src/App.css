@@ -48,7 +48,7 @@ body{
 }
 .post-details__thumbnail {
     width: 100%; /* Set the container width */
-    height: 64vh; /* Set the container height */
+    height: 400px; /* Set the container height */
     overflow: hidden; /* Hide the overflow of the image outside the container */
     position: relative;
 }
@@ -229,7 +229,7 @@ nav {
     
     top: 0;
     left: 0; */
-    /* width: 100vw; */
+    width: 100vw;
     font-weight: 600;
     color: #030303;
     background-color: rgb(240, 240, 240);
@@ -461,6 +461,9 @@ footer {
 
 .description p{
     margin: 0 !important;
+    text-align: justify;
+    font-family: source-serif-pro, Georgia, Cambria, "Times New Roman", Times, serif;
+    font-size: 18px;
 }
 
 .description blockquote {
@@ -475,15 +478,6 @@ footer {
     list-style: disc;
 }
 
-/* .description p, .description ol, .description ul, .description pre, .description blockquote, .description h1, .description h2, .description h3, .description h4, .description h5, .description h6 {
-    margin: 0;
-    padding: 0;
-    counter-reset: list-1 list-2 list-3 list-4 list-5 list-6 list-7 list-8 list-9;
-} */
-
-.description p{
-    font-size: 25px;
-}
 .description a:link {
     color: blue;
     text-decoration: underline;

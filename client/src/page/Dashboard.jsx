@@ -1,8 +1,8 @@
 import React, {useState} from 'react'
-import{DUMMY_POSTS} from '../data'
+// import{DUMMY_POSTS} from '../data'
 
 const Dashboard = () => {
- const[post,SetPosts] = useState(DUMMY_POSTS)
+ const[post,SetPosts] = useState([])
 
   return (
     <div>Dashboard</div>

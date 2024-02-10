@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { DUMMY_POSTS } from '../data'
+// import { DUMMY_POSTS } from '../data'
 import PostItem from '../components/PostItem'
 import axios from 'axios';
 import { useLocation } from 'react-router-dom';

@@ -30,13 +30,16 @@ const Posts = () => {
 
         <section className='posts'>
         {
-           Posts.length > 0 ? <div className='container posts__container'>
+           Posts.length > 0 ? <>
+           <h4 style={{marginTop:"10px", marginBottom:"5px", padding: "2rem"}}>Featured Acticles</h4>
+           <div className='container posts__container'>
                 {
                 Posts.map(({id, thumbnail, category, title}) => 
                 <PostItem postID={id} thumbnail={thumbnail} category={category} title={title}
                 />)
                 }
-            </div> : <h2 className='center'>NO POSTS FOUND..... </h2>}
+            </div>
+            </> : <h2 className='center'>NO POSTS FOUND..... </h2>}
         </section>
     ) 
 }

@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
-import { DUMMY_POSTS } from '../data'
+// import { DUMMY_POSTS } from '../data'
 import PostItem from '../components/PostItem'
 
 
 const AuthorPost = () => {
-  const [posts, setPosts] = useState(DUMMY_POSTS)
+  const [posts, setPosts] = useState([])
 
   return (
     

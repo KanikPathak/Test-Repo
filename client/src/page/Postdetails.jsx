@@ -18,7 +18,15 @@ const [clicked, setClicked] = useState(null); // Track user choice
   const handleLikeClick = async (isLiked) => {
     setClicked(true);
       try {
-
+        const key = id + "like";
+        if(localStorage.getItem(key)==null)
+          {
+            localStorage.setItem(key,1);
+          }
+          else
+          {
+            return;
+          }
         const respo = await fetch(`http://localhost:8000/likesCount/${id}`, {
           method: 'POST',
           headers: {
@@ -58,7 +66,7 @@ useEffect(() => {
 }, []); // Include id as a dependency to re-run the effect when it changes
 
   return (
-    <section className='post-detail'>
+    <section className='post-detail' style={{margin: "0rem"}}>
       <div className='container post-details__container'>
         {/* <h1>This is the post of title!</h1> */}
         {/* <div className='post-details__heder'> */}

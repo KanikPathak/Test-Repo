@@ -20,7 +20,14 @@ const PostItem = ({ postID, category, title, thumbnail }) => {
 
   const handleClick = async () => {
     try {
-
+          if(localStorage.getItem(postID)==null)
+          {
+            localStorage.setItem(postID,1);
+          }
+          else
+          {
+            return;
+          }
       const respo = await fetch(`http://localhost:8000/clickCount`, {
         method: 'POST',
         headers: {

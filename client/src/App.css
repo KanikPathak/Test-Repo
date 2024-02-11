@@ -46,21 +46,7 @@ body{
     flex-direction: column;
     align-items: center;
 }
-.post-details__thumbnail {
-    width: 100%; /* Set the container width */
-    height: 400px; /* Set the container height */
-    overflow: hidden; /* Hide the overflow of the image outside the container */
-    position: relative;
-}
-.post-details__thumbnail img{
-    width: 100%; /* Ensure the entire image is visible within the container */
-    height: auto; /* Maintain the aspect ratio */
-    object-fit: cover; /* Crop the image to cover the container without distortion */
-    object-position: center center; /* Center the middle part of the image */
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-}
+
 
 img{
     display: block;
@@ -515,7 +501,40 @@ footer {
     max-height: 30rem;
     overflow: hidden;
 }
-
+@media only screen and (min-width: 1000px) {
+    .post-details__thumbnail {
+        width: 100%; /* Set the container width */
+        height: 40vw; /* Set the container height */
+        overflow: hidden; /* Hide the overflow of the image outside the container */
+        position: relative;
+    }
+    .post-details__thumbnail img{
+        width: 100% !important; /* Ensure the entire image is visible within the container */
+        height: auto !important; /* Maintain the aspect ratio */
+        object-fit: cover !important; /* Crop the image to cover the container without distortion */
+        object-position: center center !important; /* Center the middle part of the image */
+        position: absolute !important;
+        top: 50% !important;
+        transform: translateY(-50%) !important;
+    }
+  }
+  @media only screen and (max-width: 1000px) {
+    .post-details__thumbnail {
+        width: 100%; /* Set the container width */
+        height: 60vh; /* Set the container height */
+        overflow: hidden; /* Hide the overflow of the image outside the container */
+        position: relative;
+    }
+    .post-details__thumbnail img{
+        width: auto !important; /* Ensure the entire image is visible within the container */
+        height: 100% !important; /* Maintain the aspect ratio */
+        object-fit: cover !important; /* Crop the image to cover the container without distortion */
+        object-position: center center !important; /* Center the middle part of the image */
+        position: absolute !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+    }
+  }
 .post-detail p{
     margin: 0.7rem;
 }

@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import PostItem from './PostItem';
 import axios from 'axios';
 
 const Posts = () => {
     const [Posts, setpost] = useState ([])
+    useEffect(() => {
     const handleUpload = async () => {
         
         try {
@@ -25,7 +26,10 @@ const Posts = () => {
           console.error('Error fetching image', error);
         }
     }
+    
     handleUpload();
+}, []);
+
     return (
 
         <section className='posts'>

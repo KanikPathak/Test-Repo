@@ -69,7 +69,7 @@ img{
 }
 a {
     color: var(--color-gray-700);
-    text-decoration: none;
+    text-decoration: none !important;
 }
 
 ul {
@@ -102,7 +102,7 @@ h5 {
 }
 
 section {
-    margin: 6rem;
+    margin: 2.5%;
 } 
 
 .container {
@@ -129,8 +129,15 @@ section {
 .btn.category{
     background-color: rgb(0, 0, 0, 0);
     color: var(--color--primary);
-    font-size: 0.75rem;
+    /* font-size: 0.75rem; */
     font-weight: 400;
+}
+
+.category {
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    color: #131313;
+    
 }
 
 .btn.sm{
@@ -148,9 +155,13 @@ section {
     background: var(--color-gray-900);
     color: var(--color-white)
 }
+
+a:hover {
+    color: #030303;
+}
   
 
-.post__content {
+/* .post__content {
     text-align:center;
     padding-top: 5rem;
     margin-inline: center;
@@ -161,30 +172,13 @@ section {
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 1; /* Place the text above the blur layer */
-}
+/*}
 
 .post__thumbnail {
     position: relative;
     overflow: hidden;
-  }
-  
-  .blur-layer {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%; /* Adjust the width of the blurred area */
-    height: 80%; /* Adjust the height of the blurred area */
-    backdrop-filter: blur(3px); /* Adjust the blur amount */
-    transition: all 0.3s ease; /* Add transition for a smooth effect */
-    pointer-events: none; /* Ensure the blur layer doesn't interfere with mouse events */
-    background-color: rgba(255, 255, 255, 0.7);
-  }
-  
-  .post__thumbnail.hovered .blur-layer {
-    width: 100%;
-    height: 100%;
-  }
+  } */
+
 
 
 
@@ -229,7 +223,6 @@ nav {
     
     top: 0;
     left: 0; */
-    width: 100vw;
     font-weight: 600;
     color: #030303;
     background-color: rgb(240, 240, 240);
@@ -327,45 +320,102 @@ footer {
 /*===============POST====================*/
 .posts__container{
     display: grid;
-    grid-template-columns: repeat(3,2fr);
-    gap: 4rem;
+    grid-template-columns: repeat(5,2fr);
+    gap: 1.25vw;
+}
 
+.post__content {
+    flex: 0;
+    font-family: 'Roboto';
+}
+
+/*===============Number of columns for different screen size====================*/
+@media screen and (max-width: 500px) {
+    .posts__container{
+        grid-template-columns: repeat(1,2fr);
+    }
+}
+
+@media screen and (max-width: 800px) and (min-width: 500px) {
+    .posts__container{
+        grid-template-columns: repeat(2,2fr) !important;
+    }
+}
+
+@media screen and (max-width: 900px) and (min-width: 800px) {
+    .posts__container{
+        grid-template-columns: repeat(3,2fr) !important;
+    }
+}
+
+@media screen and (max-width: 1200px) and (min-width: 900px) {
+    .posts__container{
+        grid-template-columns: repeat(4,2fr) !important;
+    }
+}
+
+@media screen and (max-width: 1400px) and (min-width: 1200px) {
+    .posts__container{
+        grid-template-columns: repeat(5,2fr) !important;
+    }
+}
+
+.read_more {
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    font-weight: 700;
+}
+
+.custom-arrow {
+    height: 12.4px;
+    width: auto;
 }
 
 .post {
     background: var(--color-white);
-    /* padding: 1rem; */
-    border-radius: var(--radius-4);
-    /* padding-bottom: 2rem; */
+    padding: 0.5rem;
+    border-radius: var(--radius-2);
     transition: var(--transition);
     cursor: default;
-    align-items: center;
+    align-items: left;
+    background-color: rgb(240, 240, 240);
+    height: 33vh;
+    width: 18vw;
+    display: flex;
+    flex-direction: column;
 }
 
 .post:hover{
-    box-shadow: 0 0 1rem 1rem rgba(200,200, 200, 0.7);
+    box-shadow: 0 1.5rem 2rem rgba(0, 0, 0, 1);
 }
 
 .post__thumbnail{
-    border-radius: var(--radius-3);
+    border-radius: var(--radius-2);
     overflow: hidden;
-    height: 10rem;
+    height: 8rem;
+    flex: 1;
+}
+
+.post__thumbnail img{
+    height: 100%;
 }
 
 .posts__container{
-    margin-top: 1.5rem;
+    margin: 1rem 0 0 0;
+    padding: 0;
+
 }
 
 .posts__container h3{
-    margin: 1rem 0 0.6rem;
+    margin: 0.5rem 0 0 0;
 }
 
 .post__footer{
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
-    margin-top: 3.5rem;
-    background-color: rgba(255, 255, 255, 0);
+    margin-top: 2rem;
 }
 
 .post__author{

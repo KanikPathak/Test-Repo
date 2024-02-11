@@ -1,12 +1,14 @@
-import React, { useState} from 'react'
-import {Link} from "react-router-dom"
+import React, { useState } from 'react'
+import { Link } from "react-router-dom"
 import PostAuthor from './PostAuthor'
+import { ReactComponent as ArrowIcon } from '../images/right-arrow.svg';
 
-const PostItem = ({postID, category, title, thumbnail}) => {
 
-const postTitle = title;
+const PostItem = ({ postID, category, title, thumbnail }) => {
 
-const [isHovered, setIsHovered] = useState(false);
+  const postTitle = title;
+
+  const [isHovered, setIsHovered] = useState(false);
 
   const handleMouseEnter = () => {
     setIsHovered(true);
@@ -23,7 +25,7 @@ const [isHovered, setIsHovered] = useState(false);
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-        }, 
+        },
         body: JSON.stringify({
           id: postID,
           category: category
@@ -38,31 +40,24 @@ const [isHovered, setIsHovered] = useState(false);
 
   return (
     <article className='post'>
-        <Link to={`/posts/${postID}`} onClick={() => handleClick()} >
-            <div
-                className={`post__thumbnail ${isHovered ? 'hovered' : ''}`}
-                style={{
-                    backgroundImage: `url(${thumbnail})`,
-                    backgroundRepeat: 'no-repeat',
-                    backgroundSize: 'cover',
-                    position: 'relative',
-                    width: '100%',
-                    
-                }}
-                onMouseEnter={handleMouseEnter}
-                onMouseLeave={handleMouseLeave}
-            >
-                <div className="blur-layer"></div>
 
-                <div className='post__content'>
-                    
-                        <h3 style={{ fontFamily: 'Oswald', fontWeight: 'normal'}}>{postTitle}</h3>
-                    <div className='post__footer'>
-                        <Link to={`/post/categories/${category}`} className='btn category'>{category}</Link>
-                    </div>
-                </div>
+      <div className='post__thumbnail'>
+        <img src={thumbnail} alt={title} />
+      </div>
+
+      <div className='post__content'>
+
+        <h3 style={{ fontWeight: 'normal', padding: "", fontSize: "20px" }}>{postTitle}</h3>
+        <Link to={`/post/categories/${category}`} className='category'>{category}</Link>
+        <Link to={`/posts/${postID}`} onClick={() => handleClick()} >
+          <div className='read_more'>
+            <div>Read More</div>
+            <div class="arrow-container">
+                <ArrowIcon className='custom-arrow'/>
             </div>
+          </div>
         </Link>
+      </div>
     </article>
   )
 }

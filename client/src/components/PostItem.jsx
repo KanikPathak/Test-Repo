@@ -5,8 +5,8 @@ import { ReactComponent as ArrowIcon } from '../images/right-arrow.svg';
 
 
 const PostItem = ({ postID, category, title, thumbnail }) => {
-
-  const postTitle = title;
+  console.log("aalas");
+  const postTitle = title; 
 
   const [isHovered, setIsHovered] = useState(false);
 

@@ -46,12 +46,14 @@ const [clicked, setClicked] = useState(null); // Track user choice
 
 useEffect(() => {
   const handleUpload = async () => {
-    try {
+    try {  
+      console.log(id);
       const response = await axios.get(`http://localhost:8000/getAllDataById/${id}`);
-      console.log(response.data.data)
+      console.log("the checkpont 3");
+      console.log(response);
       setTitle(response.data.data.title);
       setCategory(response.data.data.category);
-      setDescription(response.data.data.description)
+      setDescription(response.data.data.description);
       const resp = await axios.get(`http://localhost:8000/getImage/${response.data.data.imgname}`);
       setFile(resp.data.imageData);
       // return post;
@@ -66,6 +68,10 @@ useEffect(() => {
 }, []); // Include id as a dependency to re-run the effect when it changes
 
   return (
+    <>
+    <div className='post-details__thumbnail'>
+          <img src={file} alt='' />
+        </div>
     <section className='post-detail' style={{margin: "0rem"}}>
       <div className='container post-details__container'>
         {/* <h1>This is the post of title!</h1> */}
@@ -88,9 +94,7 @@ useEffect(() => {
         </div>
 
 
-        <div className='post-details__thumbnail'>
-          <img src={file} alt='' />
-        </div>
+        
         <div className='description' dangerouslySetInnerHTML={{ __html: description }} />
         {clicked? null: (<div className="like-form">
           <h4>Did you like the blog?</h4>
@@ -99,6 +103,7 @@ useEffect(() => {
         </div>)}
       </div>
     </section>
+    </>
   )
 }
 

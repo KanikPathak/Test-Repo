@@ -8,10 +8,13 @@ const Posts = ({ selectedTopic }) => {
     const handleUpload = async () => {
         
         try {
+            console.log("let me help you ");
           const response = await axios.get('http://localhost:8000/getAllData');
+          console.log("came after api request lets see it now");
         //   console.log(response.data.data[0].imgname);
         //   setpost(response.data.data)
         //   console.log(Posts)
+        console.log(response.data);
             for(var i=0; i<response.data.data.length; i++)
             {
                 const resp = await axios.get(`http://localhost:8000/getImage/${response.data.data[i].imgname}`)
@@ -23,7 +26,8 @@ const Posts = ({ selectedTopic }) => {
             }
             setpost(response.data.data)
         } catch (error) {
-          console.error('Error fetching image', error);
+            //window.location.reload();
+           console.error('Error fetching image', error);
         }
     }
     

@@ -46,21 +46,7 @@ body{
     flex-direction: column;
     align-items: center;
 }
-.post-details__thumbnail {
-    width: 100%; /* Set the container width */
-    height: 400px; /* Set the container height */
-    overflow: hidden; /* Hide the overflow of the image outside the container */
-    position: relative;
-}
-.post-details__thumbnail img{
-    width: 100%; /* Ensure the entire image is visible within the container */
-    height: auto; /* Maintain the aspect ratio */
-    object-fit: cover; /* Crop the image to cover the container without distortion */
-    object-position: center center; /* Center the middle part of the image */
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-}
+
 
 img{
     display: block;
@@ -547,7 +533,40 @@ footer {
     max-height: 30rem;
     overflow: hidden;
 }
-
+@media only screen and (min-width: 1000px) {
+    .post-details__thumbnail {
+        width: 100%; /* Set the container width */
+        height: 40vw; /* Set the container height */
+        overflow: hidden; /* Hide the overflow of the image outside the container */
+        position: relative;
+    }
+    .post-details__thumbnail img{
+        width: 100% !important; /* Ensure the entire image is visible within the container */
+        height: auto !important; /* Maintain the aspect ratio */
+        object-fit: cover !important; /* Crop the image to cover the container without distortion */
+        object-position: center center !important; /* Center the middle part of the image */
+        position: absolute !important;
+        top: 50% !important;
+        transform: translateY(-50%) !important;
+    }
+  }
+  @media only screen and (max-width: 1000px) {
+    .post-details__thumbnail {
+        width: 100%; /* Set the container width */
+        height: 60vh; /* Set the container height */
+        overflow: hidden; /* Hide the overflow of the image outside the container */
+        position: relative;
+    }
+    .post-details__thumbnail img{
+        width: auto !important; /* Ensure the entire image is visible within the container */
+        height: 100% !important; /* Maintain the aspect ratio */
+        object-fit: cover !important; /* Crop the image to cover the container without distortion */
+        object-position: center center !important; /* Center the middle part of the image */
+        position: absolute !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+    }
+  }
 .post-detail p{
     margin: 0.7rem;
 }
@@ -756,120 +775,3 @@ input, select, textarea{
 
 
 
-
-
-/*==================================== User Profile section==========================*/
-@media screen and (max-width: 800px ) {
-    h1{
-        font-size: 1.5rem;
-    }
-    
-    h2{
-        font-size: 1.4rem;
-    }
-
-    h3{
-        font-size: 1.2rem;
-    }
-
-
-    .container{
-        width: var(--container-width-md);
-    }
-
-    /* NAVBAR */
-    .nav__menu{
-        position: absolute;
-        top: 5rem;
-        right: 0;
-        flex-direction: column;
-        gap: 0;
-    }
-
-    .nav__menu li {
-        width: 100%;
-        box-shadow: -2rem 4rem 4rem rgba(0, 0, 0, 0.26);
-        animation: dropDown 500ms ease forwards;
-        opacity: 0;
-        transform: rotateX(900deg);
-        transform-origin: top;
-    }
-
-    @keyframes dropDown {
-        to{
-            opacity: 1;
-            transform: rotateX(0);
-        }
-    }
-
-    .nav__menu li:nth-child(2){
-        animation-delay: 300ms;
-    }
-
-    .nav__menu li:nth-child(3){
-        animation-delay: 600ms;
-    }
-
-    .nav__menu li:nth-child(4){
-        animation-delay: 900ms;
-    }
-
-    .nav__menu li a {
-        display: block;
-        background: var(--color-white);
-        padding: 0.85rem 2.5rem;
-    }
-
-    .nav__toggle-btn{
-        display: inline-block;
-        background: transparent;
-        font-size: 1.5rem;
-        cursor: pointer;
-    }
-
-    .posts__container {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-    }
-
-    .footer__categories{
-        flex-direction: column;
-    }
-
-    .post-detail{
-        width: 100%;
-        background: transparent;
-        padding: 0;
-        align-items: centre;
-    }
-
-    .post-detail h1 {
-        margin-top: 1rem;
-    }
-
-    .register, .login, .create-post{
-        width: 100%;
-    }
-
-    .form.profile__form {
-        margin-top: 2.5rem;
-        width: 100%;
-    }
-
-    .author__container{
-        grid-template-columns: 1fr;
-        gap: 1.2rem;
-    }
-
-    .dasboard__post{
-        flex-direction: column;
-    }
-
-    .dasboard__post-info{
-        gap: 1.5rem;
-    }
-
-    .dasboard__post-thumbnail{
-        width: 5rem;
-    }
-} 

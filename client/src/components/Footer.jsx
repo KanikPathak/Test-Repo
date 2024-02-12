@@ -3,20 +3,23 @@ import { Link } from "react-router-dom"
 
 const Footer = () => {
   return (
-    <footer>
-      <ul className='footer__categories'>
-      <li><Link to="/post/categories/Agriculture">Agriculture</Link></li>
-      <li><Link to="/post/categories/Business">Business</Link></li>
-      <li><Link to="/post/categories/Education">Education</Link></li>
-      <li><Link to="/post/categories/Entertainment">Entertainment</Link></li>
-      <li><Link to="/post/categories/Art">Art</Link></li>
-      <li><Link to="/post/categories/Investment">Investment</Link></li>
-      <li><Link to="/post/categories/Weather">Weather</Link></li>
-      <li><Link to="/post/categories/Uncategorized">Uncategorized</Link></li>
-      </ul>
-      <div className='footer__copyright'>
-        <small>All Rights Reserved &copy; Copyright, ClinicalAiassitance private Limited. </small>
+    <footer className='footer'>
+      <div className="footer-content">
+        <div className="footer-text">
+          <h1>Health Blog</h1>
+          <p>Your trusted source</p>
+          <div className='footer__copyright'>
+            <small>All Rights Reserved &copy; Copyright, ClinicalAiassitance private Limited. </small>
+          </div>
+        </div>
+        <div className="footer-links">
+          <Link to={'/'} className='footer_link'>Home</Link>
+          <Link to={'/create'} className='footer_link'>Create Post</Link>
+          <Link to={'#'} className='footer_link'>Login</Link>
+          <Link to={'#'} className='footer_link'>FAQ</Link>
+        </div>
       </div>
+      
 
     </footer>
   )

@@ -46,12 +46,14 @@ const [clicked, setClicked] = useState(null); // Track user choice
 
 useEffect(() => {
   const handleUpload = async () => {
-    try {
+    try {  
+      console.log(id);
       const response = await axios.get(`http://localhost:8000/getAllDataById/${id}`);
-      console.log(response.data.data)
+      console.log("the checkpont 3");
+      console.log(response);
       setTitle(response.data.data.title);
       setCategory(response.data.data.category);
-      setDescription(response.data.data.description)
+      setDescription(response.data.data.description);
       const resp = await axios.get(`http://localhost:8000/getImage/${response.data.data.imgname}`);
       setFile(resp.data.imageData);
       // return post;

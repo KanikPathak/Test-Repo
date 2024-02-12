@@ -19,17 +19,12 @@ const UploadComponent = () => {
     const formData = new FormData();
     formData.append('image', file);
 
-    // console.log(description)
     let name;
     try {
+      console.log("yha hu");
       const response = await axios.post('http://localhost:8000/upload', formData);
       name = response.data.name;
-    } catch (error) {
-      console.error('Error uploading image', error);
-    }
-
-    try {
-
+      console.log("here i come");
       const respo = await fetch('http://localhost:8000/createPost', {
         method: 'POST',
         headers: {
@@ -48,12 +43,11 @@ const UploadComponent = () => {
       console.log(respo)
       if (respo.ok)
       {
-        navigate('/', { replace: true });
+        window.location = '/';
       }
-
-    } catch (error) {
-      console.log("it is not working for some issue");
-      console.error('Error making API call:', error.message);
+    } 
+    catch (error) {
+      console.error('Error uploading image', error);
     }
   };
 

@@ -225,25 +225,37 @@ a:hover {
     gap: 10px;
   }
 
-  .topic {
+  .topic_container {
     cursor: pointer;
-    background-color: rgb(180, 180, 180);
-    color: #fff;
+    position: relative;
+    display: inline-block;
+  }
+
+  .topic {
+    /* background-color: rgb(180, 180, 180);
+    color: #fff; */
     border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 30px;
+    height: 30vh;
     width: 200px;
     margin: 5px;
     font-size: 15px;
     padding: 2px auto;
   }
 
-  .topic:hover, .topic.selected {
-    color: rgb(180, 180, 180);
-    background-color: #fff;
+  .overlay-text {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    background-color: rgba(0, 0, 0); /* Black background with 50% opacity */
+    color: #fff; /* White text */
+    padding: 5px 15px;
+    font-size: 16px;
+    border-radius: 10px;
   }
+
 /*===============ERROR PAGE CSS (Page not found part)====================*/
 
 .center{

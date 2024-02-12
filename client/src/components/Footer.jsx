@@ -6,10 +6,10 @@ const Footer = () => {
     <footer className='footer'>
       <div className="footer-content">
         <div className="footer-text">
-          <h1>Health Blog</h1>
+          <h1>Clinical AI Assistance</h1>
           <p>Your trusted source</p>
           <div className='footer__copyright'>
-            <small>All Rights Reserved &copy; Copyright, ClinicalAiassitance private Limited. </small>
+            <small>Copyright&copy; Clinical AI Assistance. All Rights Reserved.</small>
           </div>
         </div>
         <div className="footer-links">

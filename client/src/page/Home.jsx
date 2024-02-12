@@ -1,5 +1,11 @@
 import React, { useState } from 'react'
 import Posts from '../components/Posts'
+import img1 from '../images/agri_img.jpg'
+import img2 from '../images/art_img.jpeg'
+import img3 from '../images/business_img.jpeg'
+import img4 from '../images/edu_img.jpeg'
+import img5 from '../images/invest_img.jpeg'
+import img6 from '../images/ent_img.jpeg'
 
 const Home = () => {
   const [selectedTopic, setSelectedTopic] = useState(null);
@@ -20,12 +26,30 @@ const Home = () => {
           Featured Topics
       </h4>
       <div className='topics'>
-          <div className={`topic ${selectedTopic === 'Health Condition' ? 'selected' : ''}`} onClick={() => handleTopicSelect('Health Condition')}>Health Condition</div>
-          <div className={`topic ${selectedTopic === 'Fitness' ? 'selected' : ''}`} onClick={() => handleTopicSelect('Fitness')}>Fitness</div>
-          <div className={`topic ${selectedTopic === 'Nutrition' ? 'selected' : ''}`} onClick={() => handleTopicSelect('Nutrition')}>Nutrition</div>
-          <div className={`topic ${selectedTopic === 'Mental Health' ? 'selected' : ''}`} onClick={() => handleTopicSelect('Mental Health')}>Mental Health</div>
-          <div className={`topic ${selectedTopic === 'Holistic Health' ? 'selected' : ''}`} onClick={() => handleTopicSelect('Holistic Health')}>Holistic Health</div>
-          <div className={`topic ${selectedTopic === 'Ayurveda' ? 'selected' : ''}`} onClick={() => handleTopicSelect('Ayurveda')}>Ayurveda</div>
+          <div className="topic_container" onClick={() => handleTopicSelect('Health Condition')}>
+            <img src={img1} className={`topic ${selectedTopic === 'Health Condition' ? 'selected' : ''}`} />
+            <div class="overlay-text">Health Condition</div>
+          </div>
+          <div className="topic_container" onClick={() => handleTopicSelect('Fitness')}>
+            <img src={img2} className={`topic ${selectedTopic === 'Fitness' ? 'selected' : ''}`} />
+            <div class="overlay-text">Fitness</div>
+          </div>
+          <div className="topic_container" onClick={() => handleTopicSelect('Nutrition')}>
+            <img src={img3} className={`topic ${selectedTopic === 'Nutrition' ? 'selected' : ''}`} />
+            <div class="overlay-text">Nutrition</div>
+          </div>  
+          <div className="topic_container" onClick={() => handleTopicSelect('Mental Health')}>
+            <img src={img4} className={`topic ${selectedTopic === 'Mental Health' ? 'selected' : ''}`} />
+            <div class="overlay-text">Mental Health</div>
+          </div>
+          <div className="topic_container" onClick={() => handleTopicSelect('Holistic Health')}>
+            <img src={img5} className={`topic ${selectedTopic === 'Holistic Health' ? 'selected' : ''}`} />
+            <div class="overlay-text">Holistic Health</div>
+          </div>
+          <div className="topic_container" onClick={() => handleTopicSelect('Ayurveda')}>
+            <img src={img6} className={`topic ${selectedTopic === 'Ayurveda' ? 'selected' : ''}`} />
+            <div class="overlay-text">Ayurveda</div>
+          </div>
       </div>
       <Posts selectedTopic={selectedTopic}/>
       

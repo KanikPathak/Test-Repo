@@ -36,7 +36,7 @@ function App() {
         <Route path="/post/:id/edit" element= {<EditPost/>} />
         <Route path="/logout" element= {<Logout/>} />
       </Routes>
-      
+      <Footer />
     </>
   );
 }

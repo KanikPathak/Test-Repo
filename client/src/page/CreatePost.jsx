@@ -76,8 +76,7 @@ const UploadComponent = () => {
     'link', 'image',
   ]
 
-  const POST_CATEGORIES = ["Agriculture", "Business", "Education", "Entertainment", "Art", "Investment",
-    "Weather", "Uncategorized"]
+  const POST_CATEGORIES = ["Health Condition", "Fitness", "Nutrition", "Mental Health", "Holistic Health", "Ayurveda", "Uncategorized"]
 
   return (
     <section className='create-post'>

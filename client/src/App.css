@@ -197,7 +197,7 @@ a:hover {
     height: 100%;
     background-image: url('./images/business_img.jpeg'); /* Replace 'your-image.jpg' with your image URL */
     background-size: cover;
-    /* filter: blur(5px); Adjust the blur effect as needed */
+    filter: blur(5px); /* Adjust the blur effect as needed */
   }
   
   .centered-text {
@@ -214,17 +214,49 @@ a:hover {
     font-size: 24px; /* Adjust font size as needed */
     font-weight: bold; /* Adjust font weight as needed */
   }
-  
-  .rounded-bottom {
-    position: absolute;
-    bottom: 0;
-    left: 0;
+
+
+  .articlesHeading {
+    margin-top:10px;
+    margin-bottom:5px;
+    padding: 1rem;
     width: 100%;
-    border-bottom-left-radius: 20px; /* Adjust the border radius as needed */
-    border-bottom-right-radius: 20px; /* Adjust the border radius as needed */
+    background-color: rgb(240, 240, 240);
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 45px;
+    font-size: larger;
   }
 
+  .topics {
+    display: flex;
+    margin: 1.5vh 2.5%;
+    flex-wrap: wrap;
+    width: 95%;
+    justify-content: center;
+    gap: 10px;
+  }
 
+  .topic {
+    background-color: rgb(180, 180, 180);
+    color: #fff;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 30px;
+    width: 200px;
+    margin: 5px;
+    font-size: 15px;
+    padding: 2px auto;
+  }
+
+  .topic:hover, .topic.selected {
+    color: rgb(180, 180, 180);
+    background-color: #fff;
+  }
 /*===============ERROR PAGE CSS (Page not found part)====================*/
 
 .center{

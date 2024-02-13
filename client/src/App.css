@@ -489,6 +489,17 @@ nav {
 
 }
 
+@media screen and (max-width: 600px) {
+    .posts__container{
+        grid-template-columns: repeat(1,2fr) !important;
+    }
+
+    .post {
+        width: 100%;
+        margin: auto 9%;
+    }
+}
+
 .posts__container h3{
     margin: 0.5rem 0 0 0;
 }

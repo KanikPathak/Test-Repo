@@ -13,7 +13,7 @@ const Footer = () => {
           </div>
         </div>
         <div className="footer-links">
-          <Link to={'/'} className='footer_link'>Home</Link>
+          <a href='/' className='footer_link'>Home</a>
           <Link to={'/create'} className='footer_link'>Create Post</Link>
           <Link to={'#'} className='footer_link'>Login</Link>
           <Link to={'#'} className='footer_link'>FAQ</Link>

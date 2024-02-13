@@ -38,14 +38,14 @@ function Header() {
                 </ul>
                 <ul className="navbar-nav my-2 my-lg-0">
                     <li className="nav-item my-2 my-sm-0">
-                        <Link className="nav-link" to="/login" onClick={handleLinkClick} id="login-nav">Login</Link>
+                        <Link className="nav-link" to="/login" onClick={handleLinkClick} id="login-nav">Login dude</Link>
                     </li>
                     <li className="nav-item mr-sm-2">
                         <Link className="nav-link" to="/signup" onClick={handleLinkClick} id="Signup-nav">Sign up</Link>
                     </li>
                 </ul>
             </div>
-        </nav>
+        </nav> 
   );
 }
 export default Header;

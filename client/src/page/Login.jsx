@@ -1,35 +1,45 @@
-import React, { useState } from 'react'
-import {Link} from 'react-router-dom'
+import React, { useState } from 'react';
+import Signup from './Signup'; // Import the Signup component
+import SignupReader from './SignupReader';
 
+const RegistrationPage = () => {
+  const [selectedOption, setSelectedOption] = useState('reader');
 
-const Login = () => {
-const [userData, setUserData] = useState({
-    email:'',
-    password:'',
-})
+  const handleOptionChange = (option) => {
+    setSelectedOption(option);
+  };
 
-  const changeInputHandler = (e) => {
-      setUserData(prevState => {
-        return {...prevState, [e.target.name]: e.target.value}
-      })
-  }
-   
   return (
-    <section className='login'>
-      <div className='container'>
-        <h2>Sign in</h2>
-        <form className='form login__form'>
-          <p className='form__error-message'>This is an error message</p>
-          <input type='text' placeholder='Email' name='email' value={userData.email} onChange=
-          {changeInputHandler} autoFocus/>
-          <input type='password' placeholder='Password' name='password' value={userData.password} onChange=
-          {changeInputHandler}/>
-          <button type='submit' className='btn-primary'>Login</button>
-        </form>
-        <small>Dont have an account? <Link to= "/register">Sign in</Link></small>
-      </div>
-    </section>
-  )
-}
+    <div className="registration-page">
+      <h2>Registration</h2>
 
-export default Login
+      <div className="registration-options">
+        <label>
+          <input
+            type="radio"
+            value="reader"
+            checked={selectedOption === 'reader'}
+            onChange={() => handleOptionChange('reader')}
+          />
+          Register as Reader
+        </label>
+
+        <label>
+          <input
+            type="radio"
+            value="doctor"
+            checked={selectedOption === 'doctor'}
+            onChange={() => handleOptionChange('doctor')}
+          />
+          Register as Doctor
+        </label>
+      </div>
+
+      {selectedOption === 'reader' && <SignupReader/>}
+      {selectedOption === 'doctor' && <Signup />}
+    </div>
+  );
+};
+
+
+export default RegistrationPage;

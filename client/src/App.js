@@ -7,6 +7,7 @@ import Home from './page/Home'
 import Postdetails from './page/Postdetails'
 import Register from './page/Register'
 import Login from './page/Login'
+import Signup from './page/Signup'
 import UserProfile from './page/UserProfile'
 import UploadComponent from './page/CreatePost'
 import EditPost from './page/EditPost'
@@ -27,6 +28,7 @@ function App() {
         <Route path="/posts/:id" element= {<Postdetails/>} />
         <Route path="/register" element= {<Register/>} />
         <Route path="/login" element= {<Login/>} />
+        <Route path="/signup" element= {<Signup/>} />
         <Route path="/profile/:id" element= {<UserProfile/>} />
         <Route path="/authors" element= {<Authors/>} />
         <Route path="/create" element={<UploadComponent/>} />

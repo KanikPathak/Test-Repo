@@ -80,7 +80,7 @@ h1 {
   background-color: white;
   padding: 1.2%;
   height: auto; /* Adjusted for responsiveness */
-  width: 30%; /* Adjusted for responsiveness */
+  width: fit-content; /* Adjusted for responsiveness */
   text-transform: uppercase;
   font-size: 2rem;
   border-radius: 20px;
@@ -104,39 +104,23 @@ h1 {
 @media (max-width: 1000px) {
   .post-title {
     position: absolute;
-    top: 100%;
+    top: 40vh;
     left: 10%;
     /* transform: translateX(-50%); */
   }
 }
 
-@media (max-width: 827px) {
+@media (max-width: 720px) {
   .post-title {
     position: absolute;
-    top: 90vh;
-    font-size: large;
+    top: 35vh;
   }
 }
 
-@media (max-width: 658px) {
+@media (max-width: 616px) {
   .post-title {
     position: absolute;
-    top: 80vh;
-  }
-}
-
-@media (max-width: 722px) {
-  .post-title {
-    position: absolute;
-    top: 80vh;
-  }
-}
-
-@media (max-width: 600px) {
-  .post-title {
-    position: absolute;
-    left: 14vw;
-    top: 40vh;
+    top: 30vh;
     width: fit-content;
     padding: 2%;
   }
@@ -657,7 +641,7 @@ p {
   max-height: 30rem;
   overflow: hidden;
 }
-@media only screen and (min-width: 1000px) {
+@media only screen and (min-width: 100px) {
   .post-details__thumbnail {
     width: 100%; /* Set the container width */
     height: 40vw; /* Set the container height */
@@ -675,22 +659,12 @@ p {
     transform: translateY(-50%) !important;
   }
 }
-@media only screen and (max-width: 450px) {
+@media only screen and (max-width: 550px) {
   .post-details__thumbnail {
     width: 100%; /* Set the container width */
     height: 40vh; /* Set the container height */
     overflow: hidden; /* Hide the overflow of the image outside the container */
     position: relative;
-  }
-
-  .post-details__thumbnail img {
-    width: auto !important; /* Ensure the entire image is visible within the container */
-    height: 100% !important; /* Maintain the aspect ratio */
-    object-fit: cover !important; /* Crop the image to cover the container without distortion */
-    object-position: center center !important; /* Center the middle part of the image */
-    position: absolute !important;
-    left: 50% !important;
-    transform: translateX(-50%) !important;
   }
 }
 .post-detail p {

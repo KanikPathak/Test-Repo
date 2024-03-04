@@ -75,28 +75,73 @@ h1 {
 }
 .post-title {
   position: absolute;
-  top: 50%;
-  left: 6%;
+  top: 65%; /* Initial top position */
+  left: 10%; /* Initial left position */
   background-color: white;
   padding: 1.2%;
-  height: 20vh;
+  height: auto; /* Adjusted for responsiveness */
+  width: 30%; /* Adjusted for responsiveness */
   text-transform: uppercase;
-  width: 30vw;
   font-size: 2rem;
   border-radius: 20px;
   font-weight: bold;
 }
+
 @media (max-width: 1043px) {
   .post-title {
-    position: absolute;
-    top: 45vh;
-    left: 10%;
     padding: 2%;
-    font-size: large;
-    width: 50%;
-    height: 20vh;
+    font-size: 1.5em;
   }
 }
+
+@media (max-width: 1415px) {
+  .post-title {
+    position: absolute;
+    top: 44vh;
+  }
+}
+
+@media (max-width: 1000px) {
+  .post-title {
+    position: absolute;
+    top: 100%;
+    left: 10%;
+    /* transform: translateX(-50%); */
+  }
+}
+
+@media (max-width: 827px) {
+  .post-title {
+    position: absolute;
+    top: 90vh;
+    font-size: large;
+  }
+}
+
+@media (max-width: 658px) {
+  .post-title {
+    position: absolute;
+    top: 80vh;
+  }
+}
+
+@media (max-width: 722px) {
+  .post-title {
+    position: absolute;
+    top: 80vh;
+  }
+}
+
+@media (max-width: 600px) {
+  .post-title {
+    position: absolute;
+    left: 14vw;
+    top: 40vh;
+    width: fit-content;
+    padding: 2%;
+  }
+}
+
 h2 {
   font-size: 1.9rem;
 }
@@ -630,10 +675,10 @@ p {
     transform: translateY(-50%) !important;
   }
 }
-@media only screen and (max-width: 1000px) {
+@media only screen and (max-width: 450px) {
   .post-details__thumbnail {
     width: 100%; /* Set the container width */
-    height: 60vh; /* Set the container height */
+    height: 40vh; /* Set the container height */
     overflow: hidden; /* Hide the overflow of the image outside the container */
     position: relative;
   }
